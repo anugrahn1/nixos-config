@@ -135,6 +135,8 @@
 		pipes
 		tty-clock
 		nitch
+		annotator
+		godot_4
 	];
 
 	fonts.packages = with pkgs; [

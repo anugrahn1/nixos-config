@@ -13,9 +13,21 @@
   gtk.theme.package =  pkgs.catppuccin-gtk;
   gtk.theme.name = "catppuccin-gtk";
 
+  # gtk.theme.package =  pkgs.gruvbox-dark-gtk;
+  # gtk.theme.name = "gruvbox-dark-gtk";
+
+  # gtk.theme.package = pkgs.whitesur-gtk-theme;
+  # gtk.theme.name = "whitesur";
+
+  # gtk.theme.package = pkgs.lavanda-gtk-theme;
+  # gtk.theme.name = "lavanda";
+
   # gtk.iconTheme.name = "GruvboxPlus";
-  gtk.iconTheme.package = pkgs.qogir-icon-theme;
-  gtk.iconTheme.name = "Qogir";
+  # gtk.iconTheme.package = pkgs.qogir-icon-theme;
+  # gtk.iconTheme.name = "Qogir";
+  
+  gtk.iconTheme.package = pkgs.whitesur-icon-theme;
+  gtk.iconTheme.name = "whitesur";
 
 
   qt.enable = true;
@@ -26,6 +38,7 @@
     ./kitty.nix
     ./picom.nix
     ./git.nix
+    ./yambar.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
