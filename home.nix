@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -38,7 +38,6 @@
     ./kitty.nix
     ./picom.nix
     ./git.nix
-    ./yambar.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

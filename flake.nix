@@ -9,6 +9,7 @@
     nixpkgs.url = "nixpkgs/nixos-unstable"; # Short hand for above
     home-manager.url = "github:nix-community/home-manager/master"; # Unstable branch
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    ags.url = "github:Aylur/ags";
   };
 
   outputs = { self, nixpkgs, home-manager, ...}:
