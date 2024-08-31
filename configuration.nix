@@ -12,9 +12,22 @@
 		./hardware-configuration.nix
 		];
 
+	hardware.opengl = {
+		enable = true;
+	};
+
 # Bootloader.
-	boot.loader.systemd-boot.enable = true;
-	boot.loader.efi.canTouchEfiVariables = true;
+	# boot.loader.systemd-boot.enable = true;
+	# boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader = {
+		efi.canTouchEfiVariables = true;
+		grub = {
+			enable = true;
+			devices = [ "nodev" ];
+			efiSupport = true;
+			useOSProber = true;
+		};
+	};
 
 	networking.hostName = "nixos"; # Define your hostname.
 # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,9 +57,17 @@
 		LC_TIME = "en_US.UTF-8";
 	};
 
-	# services.xserver.videoDrivers = [ "nvidia" ];
+	 services.xserver.videoDrivers = [ "nvidia" ];
 	# hardware.graphics.enable = true;
 	# hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+	hardware.nvidia = {
+		modesetting.enable = true;
+		powerManagement.enable = false;
+		powerManagement.finegrained = false;
+		open = false;
+		nvidiaSettings = true;
+		package = config.boot.kernelPackages.nvidiaPackages.beta;
+	};
 
 # Enable the X11 windowing system.
 	# services.xserver.enable = true;
