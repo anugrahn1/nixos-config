@@ -8,12 +8,12 @@
 
 
   imports = [
-    ./sh.nix
-    ./i3.nix
-    ./kitty.nix
-    ./picom.nix
-    ./git.nix
-    ./gtk.nix
+    ./modules/sh.nix
+    ./modules/i3.nix
+    ./modules/kitty.nix
+    ./modules/picom.nix
+    ./modules/git.nix
+    ./modules/gtk.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
