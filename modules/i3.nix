@@ -72,6 +72,8 @@
 			extraConfig = ''
 				exec_always --no-startup-id picom -b
 				exec_always --no-startup-id nitrogen --set-tiled ~/.dotfiles/wallpapers/Cyberpunk.png
+				exec_always ~/.dotfiles/scripts/volume.sh
+				exec_always --no-startup-id  volumeicon
 
 				for_window [class="^.*"] border pixel 2
 				set $rosewater #f5e0dc

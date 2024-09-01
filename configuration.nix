@@ -159,6 +159,7 @@
 		annotator
 		godot_4
 		pulseaudioFull
+		volumeicon
 	];
 
 	fonts.packages = with pkgs; [
