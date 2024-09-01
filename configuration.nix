@@ -179,7 +179,7 @@
 			};
 		};
 		displayManager = {
-			defaultSession = "xfce";
+			defaultSession = "xfce+i3";
 			gdm.enable = true;
 		};
 		windowManager.i3.enable = true;
