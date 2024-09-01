@@ -40,6 +40,7 @@
     ./git.nix
     inputs.ags.homeManagerModules.default
     ./ags.nix
+    ./polybar.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

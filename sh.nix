@@ -6,6 +6,7 @@
 			enable = true;
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
+			autocd = false;
 			shellAliases = {
 				ff = "fastfetch";
 				tty-clock = "tty-clock -cSt";

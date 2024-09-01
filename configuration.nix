@@ -158,6 +158,7 @@
 		nitch
 		annotator
 		godot_4
+		pulseaudioFull
 	];
 
 	fonts.packages = with pkgs; [

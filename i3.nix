@@ -2,6 +2,20 @@
 
 
 {
+	programs.i3status = {
+		enable = true;
+		enableDefault = false;
+		modules = {
+			"time" = {
+				position = 1;
+				settings ={
+					format = "%A, %B %e :: %I:%M %p";
+				};
+			};
+
+
+		};
+	};
 	xsession.windowManager.i3 = {
 		enable = true;
 		package = pkgs.i3-gaps;
@@ -13,6 +27,25 @@
 			# };
 			startup = [
 				{ command = "blueman-applet";}
+			];
+			# https://github.com/NixOS/nixpkgs/issues/26800#issuecomment-310802226 <-- example of how to use stars(*) in option names and <name>
+			bars = [
+				# { colors.focusedStatusline = "#3333"; }
+				{ extraConfig = ''
+					# output primary
+					tray_output primary
+					status_command i3status
+					separator_symbol "::"
+					workspace_min_width 10
+					padding 5px 0 0 0
+					colors {
+						background #1e1e2e
+						statusline #cdd6f4
+
+					}
+						font pango:JetBrainsMono Nerd Font 10
+						padding 0 6 0 0
+				'';}
 			];
 
 			keybindings = let modifier = "Mod1";
@@ -79,6 +112,7 @@
 				gaps inner 2
 				gaps outer 2
 				font pango:JetBrainsMono Nerd Font 14
+
 			'';
 
 	};
