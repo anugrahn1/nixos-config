@@ -7,12 +7,19 @@
 		enableDefault = false;
 		modules = {
 			"time" = {
-				position = 1;
+				position = 2;
 				settings ={
 					format = "%A, %B %e :: %I:%M %p";
 				};
 			};
 
+			"battery 0" = {
+				position = 1;
+				settings ={
+					format = "%status %percentage";
+					path = "/sys/class/power_supply/BAT1/uevent";
+				};
+			};
 
 		};
 	};
@@ -35,7 +42,7 @@
 					# output primary
 					tray_output primary
 					status_command i3status
-					separator_symbol "::"
+					separator_symbol ":|:"
 					workspace_min_width 10
 					padding 5px 0 0 0
 					colors {
@@ -71,9 +78,8 @@
 
 			extraConfig = ''
 				exec_always --no-startup-id picom -b
-				exec_always --no-startup-id nitrogen --set-tiled ~/.dotfiles/wallpapers/Cyberpunk.png
 				exec_always ~/.dotfiles/scripts/volume.sh
-				exec_always --no-startup-id  volumeicon
+				exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/sunset_city.png
 
 				for_window [class="^.*"] border pixel 2
 				set $rosewater #f5e0dc

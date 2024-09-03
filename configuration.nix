@@ -147,7 +147,6 @@
 		gnome-extension-manager
 		gnome-tweaks
 		cargo
-		nitrogen
 		picom
 		killall
 		xclip
@@ -160,6 +159,8 @@
 		godot_4
 		pulseaudioFull
 		volumeicon
+		feh
+		pfetch-rs
 	];
 
 	fonts.packages = with pkgs; [
