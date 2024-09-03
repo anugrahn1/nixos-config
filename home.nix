@@ -14,6 +14,7 @@
     ./modules/picom.nix
     ./modules/git.nix
     ./modules/gtk.nix
+    ./modules/zathura.nix
   ];
 
   # This value determines the Home Manager release that your configuration is
