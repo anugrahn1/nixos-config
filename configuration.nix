@@ -12,7 +12,7 @@
 		./hardware-configuration.nix
 		];
 
-	hardware.opengl = {
+	hardware.graphics = {
 		enable = true;
 	};
 
@@ -142,10 +142,7 @@
 		libgcc
 		gcc
 		fastfetch
-		hyprland
 		i3
-		gnome-extension-manager
-		gnome-tweaks
 		cargo
 		picom
 		killall
@@ -167,7 +164,7 @@
 		(nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" "SpaceMono"]; }) # find names here: https://github.com/NixOS/nixpkgs/blob/nixpkgs-unstable/pkgs/data/fonts/nerdfonts/shas.nix
 	];
 
-	fonts.fonts = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-emoji];
+	# fonts.packages = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-emoji];
 
 	services.xserver = {
 		enable = true;
