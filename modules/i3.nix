@@ -81,7 +81,7 @@
 				exec_always ~/.dotfiles/scripts/volume.sh
 				exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/sunset_city.png
 
-				exec --no-startup-id i3-msg 'workspace 1; exec firefox'
+				exec --no-startup-id i3-msg 'workspace 1; exec zen'
 
 				for_window [class="^.*"] border pixel 2
 				set $rosewater #f5e0dc

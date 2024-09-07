@@ -24,7 +24,7 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; }; # allows inputs to be used in configuration.nix
         modules = [ ./configuration.nix ];
       };
     };
