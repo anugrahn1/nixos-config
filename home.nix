@@ -15,6 +15,8 @@
     ./modules/git.nix
     ./modules/gtk.nix
     ./modules/zathura.nix
+    # ./modules/hypr.nix
+    ./modules/zoxide.nix
   ];
 
   # This value determines the Home Manager release that your configuration is

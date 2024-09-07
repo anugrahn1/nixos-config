@@ -70,7 +70,7 @@
 
 					"${modifier}+q" = "kill";
 
-					"${modifier}+n" = "exec firefox";
+					"${modifier}+n" = "exec zen";
 					"${modifier}+b" = "exec blueman-manager";
 
 			};

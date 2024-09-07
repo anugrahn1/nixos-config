@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 
 
@@ -158,6 +158,9 @@
 		volumeicon
 		feh
 		pfetch-rs
+		inputs.zen-browser.packages."x86_64-linux".default
+		file
+		obsidian
 	];
 
 	fonts.packages = with pkgs; [
@@ -178,11 +181,13 @@
 			};
 		};
 		displayManager = {
-			defaultSession = "xfce+i3";
 			gdm.enable = true;
 		};
 		windowManager.i3.enable = true;
 	};
+
+	services.displayManager.defaultSession = "xfce+i3";
+
 	
 	
 	programs.hyprland.enable = true;

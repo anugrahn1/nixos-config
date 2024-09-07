@@ -10,7 +10,9 @@
     home-manager.url = "github:nix-community/home-manager/master"; # Unstable branch
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ags.url = "github:Aylur/ags";
+    ags.inputs.nixpkgs.follows = "nixpkgs";
     zen-browser.url = "github:MarceColl/zen-browser-flake";
+    zen-browser.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
@@ -22,6 +24,7 @@
     nixosConfigurations = {
       nixos = lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = [ ./configuration.nix ];
       };
     };
