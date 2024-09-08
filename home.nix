@@ -6,6 +6,7 @@
   home.username = "anugrah";
   home.homeDirectory = "/home/anugrah";
 
+  services.mpris-proxy.enable = true; # control media using bluetooth controls
 
   imports = [
     ./modules/sh.nix

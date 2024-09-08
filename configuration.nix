@@ -163,6 +163,7 @@
 		obsidian
 		nodejs_22
 		go
+		lunar-client
 	];
 
 	fonts.packages = with pkgs; [
@@ -190,7 +191,7 @@
 
 	services.displayManager.defaultSession = "xfce+i3";
 
-	
+	hardware.enableAllFirmware = true;
 	
 	programs.hyprland.enable = true;
 
