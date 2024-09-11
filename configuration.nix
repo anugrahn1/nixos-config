@@ -10,6 +10,7 @@
 	imports =
 		[ # Include the results of the hardware scan.
 		./hardware-configuration.nix
+		# ./modules/stylix.nix
 		];
 
 	hardware.graphics = {
@@ -164,6 +165,8 @@
 		nodejs_22
 		go
 		lunar-client
+		vim
+		arandr
 	];
 
 	fonts.packages = with pkgs; [

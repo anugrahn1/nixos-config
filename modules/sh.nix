@@ -16,6 +16,8 @@
 				gp = "git push";
 				cd = "z";
 				cdd = "cd";
+				zathura = "zathura --fork";
+				nv = "nvim";
 			};
 			oh-my-zsh = {
 				enable = true;
