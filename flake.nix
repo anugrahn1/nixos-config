@@ -17,6 +17,7 @@
     stylix.inputs = {
       home-manager.follows = "home-manager";
     };
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
@@ -40,7 +41,10 @@
           inherit pkgs;
 
           extraSpecialArgs = { inherit inputs; }; # allows inputs to be used in home.nix
-          modules = [ ./home.nix ];
+          modules = [
+            ./home.nix
+            inputs.catppuccin.homeManagerModules.catppuccin
+          ];
         };
     };
   };
