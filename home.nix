@@ -19,6 +19,7 @@
     # ./modules/hypr.nix
     ./modules/zoxide.nix
     ./modules/btop.nix
+    ./modules/yazi.nix
   ];
 
   catppuccin.enable = true;

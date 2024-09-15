@@ -167,6 +167,10 @@
 		lunar-client
 		vim
 		arandr
+		usbutils
+		quickemu
+		pokemon-colorscripts-mac
+		wacomtablet
 	];
 
 	fonts.packages = with pkgs; [
@@ -176,6 +180,7 @@
 	# fonts.packages = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-emoji];
 
 	services.xserver = {
+		wacom.enable = true;
 		enable = true;
 		desktopManager = {
 			gnome.enable = true;

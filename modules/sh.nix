@@ -6,6 +6,7 @@
 			enable = true;
 			autosuggestion.enable = true;
 			syntaxHighlighting.enable = true;
+			syntaxHighlighting.catppuccin.enable =  true;
 			autocd = false;
 			shellAliases = {
 				ff = "fastfetch";
