@@ -168,7 +168,7 @@
 		arandr
 		usbutils
 		quickemu
-		pokemon-colorscripts-mac
+		# pokemon-colorscripts-mac
 		wacomtablet
 		simplescreenrecorder
 	];

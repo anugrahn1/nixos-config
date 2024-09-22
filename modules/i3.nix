@@ -1,6 +1,8 @@
 { config,lib, pkgs, ... }:
 
-
+let
+	wallpaperPath = "~/.dotfiles/wallpapers/Cyberpunk.png";
+in 
 {
 	programs.i3status = {
 		enable = true;
@@ -79,7 +81,7 @@
 			extraConfig = ''
 				exec_always --no-startup-id picom -b
 				exec_always --no-startup-id ~/.dotfiles/scripts/volume.sh
-				exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/Cyberpunk.png
+				exec_always --no-startup-id feh --bg-scale ${wallpaperPath}
 
 
 				for_window [class="^.*"] border pixel 2
