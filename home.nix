@@ -12,7 +12,7 @@
     ./modules/sh.nix
     ./modules/i3.nix
     ./modules/kitty.nix
-    ./modules/picom.nix
+    # ./modules/picom.nix
     ./modules/git.nix
     ./modules/gtk.nix
     ./modules/zathura.nix
@@ -42,6 +42,7 @@
 
     pkgs.kitty
 
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -69,7 +70,18 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    
+      # ".config/test/testFile" = {
+      #   # source = ./picom.conf;
+      #   executable = false;
+      # };
+    ".config/picom/picom.conf" = {
+      source = ./modules/existing-dotfiles/picom/picom.conf;
+      executable = false;
+    };
   };
+  # services.picom.enable = false;
+
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

@@ -5,7 +5,8 @@
     enable = true;
     font.name = "JetBrainsMonoNerdFont"; # find names with fc-list
     font.size = 16;
-    theme = "Catppuccin-Mocha";
+    # theme = "Catppuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
     shellIntegration.enableZshIntegration = true;
     extraConfig = ''
        confirm_os_window_close 0

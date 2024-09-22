@@ -9,8 +9,8 @@
 {
 	imports =
 		[ # Include the results of the hardware scan.
-		./hardware-configuration.nix
-		# ./modules/stylix.nix
+			./hardware-configuration.nix
+			./modules/picomnew.nix
 		];
 
 	hardware.graphics = {
@@ -145,7 +145,6 @@
 		fastfetch
 		i3
 		cargo
-		picom
 		killall
 		xclip
 		cbonsai
@@ -171,6 +170,7 @@
 		quickemu
 		pokemon-colorscripts-mac
 		wacomtablet
+		simplescreenrecorder
 	];
 
 	fonts.packages = with pkgs; [

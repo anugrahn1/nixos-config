@@ -11,13 +11,15 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     # ags.url = "github:Aylur/ags";
     # ags.inputs.nixpkgs.follows = "nixpkgs";
-    zen-browser.url = "github:MarceColl/zen-browser-flake?rev=5fce6f9bc9b2bda1f0281fcbef3160903ddc5882";
+    # zen-browser.url = "github:MarceColl/zen-browser-flake?rev=5fce6f9bc9b2bda1f0281fcbef3160903ddc5882";
+    zen-browser.url = "github:ch4og/zen-browser-flake";
     zen-browser.inputs.nixpkgs.follows = "nixpkgs";
     # stylix.url = "github:danth/stylix";
     # stylix.inputs = {
     #   home-manager.follows = "home-manager";
     # };
     catppuccin.url = "github:catppuccin/nix";
+    # picom.url = "github:yshui/picom";
   };
 
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
@@ -44,6 +46,7 @@
           modules = [
             ./home.nix
             inputs.catppuccin.homeManagerModules.catppuccin
+            # inputs.picom.homeManagerModules.picom
           ];
         };
     };

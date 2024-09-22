@@ -79,7 +79,7 @@
 			extraConfig = ''
 				exec_always --no-startup-id picom -b
 				exec_always --no-startup-id ~/.dotfiles/scripts/volume.sh
-				exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/sunset_city.png
+				exec_always --no-startup-id feh --bg-scale ~/.dotfiles/wallpapers/Cyberpunk.png
 
 
 				for_window [class="^.*"] border pixel 2

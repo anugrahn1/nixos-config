@@ -7,6 +7,12 @@
 		# fadeSteps = [ 1 1 ];
 		# fadeDelta = 10;
 		backend = "glx";
-		# TODO: figure out animations
+		settings = {
+			animations = ({ # seems to not work because nixpkgs unstable has picom v11 but needs v12
+				direction = "down";
+				preset = "slide-out";
+				triggers = [ "close" "hide" ];
+			});
+		};
 	};
 }
