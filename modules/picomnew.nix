@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   picom = pkgs.picom.overrideAttrs (oldAttrs: rec {
@@ -26,7 +31,8 @@ let
     ];
 
   });
-in {
+in
+{
   environment.defaultPackages = with pkgs; [
     picom
   ];

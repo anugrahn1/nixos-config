@@ -171,6 +171,8 @@
 		# pokemon-colorscripts-mac
 		wacomtablet
 		simplescreenrecorder
+		wpsoffice
+		alejandra
 	];
 
 	fonts.packages = with pkgs; [

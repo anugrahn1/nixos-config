@@ -79,6 +79,10 @@
       source = ./modules/existing-dotfiles/picom/picom.conf;
       executable = false;
     };
+    ".config/fastfetch/config.jsonc" = {
+      source = ./modules/existing-dotfiles/fastfetch/config.jsonc;
+      executable = false;
+    };
   };
   # services.picom.enable = false;
 
