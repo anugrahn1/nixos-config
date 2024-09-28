@@ -22,33 +22,44 @@
     # picom.url = "github:yshui/picom";
   };
 
-  outputs = { self, nixpkgs, home-manager, ...}@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-    nixosConfigurations = {
-      nixos = lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; }; # allows inputs to be used in configuration.nix
-        modules = [
-          ./configuration.nix
-          # inputs.stylix.nixosModules.stylix
-        ];
+    in
+    {
+      nixosConfigurations = {
+        nixos = lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit inputs;
+          }; # allows inputs to be used in configuration.nix
+          modules = [
+            ./configuration.nix
+            # inputs.stylix.nixosModules.stylix
+          ];
+        };
       };
-    };
-    homeConfigurations = {
+      homeConfigurations = {
         anugrah = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
 
-          extraSpecialArgs = { inherit inputs; }; # allows inputs to be used in home.nix
+          extraSpecialArgs = {
+            inherit inputs;
+          }; # allows inputs to be used in home.nix
           modules = [
             ./home.nix
             inputs.catppuccin.homeManagerModules.catppuccin
             # inputs.picom.homeManagerModules.picom
           ];
         };
+      };
     };
-  };
 }

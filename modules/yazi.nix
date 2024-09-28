@@ -1,11 +1,15 @@
-{ config,lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-	programs.yazi = {
-		enable = true;
-		enableZshIntegration = true;
-		catppuccin.enable = true;
-	};
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    catppuccin.enable = true;
+  };
 
-	
 }

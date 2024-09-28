@@ -42,7 +42,6 @@
 
     pkgs.kitty
 
-
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -70,22 +69,21 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-    
-      # ".config/test/testFile" = {
-      #   # source = ./picom.conf;
-      #   executable = false;
-      # };
+
+    # ".config/test/testFile" = {
+    #   # source = ./picom.conf;
+    #   executable = false;
+    # };
     ".config/picom/picom.conf" = {
       source = ./modules/existing-dotfiles/picom/picom.conf;
       executable = false;
     };
-    ".config/fastfetch/config.jsonc" = {
-      source = ./modules/existing-dotfiles/fastfetch/config.jsonc;
-      executable = false;
-    };
+    # ".config/fastfetch/config.jsonc" = {
+    #   source = ./modules/existing-dotfiles/fastfetch/config.jsonc;
+    #   executable = false;
+    # };
   };
   # services.picom.enable = false;
-
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -113,7 +111,6 @@
   #     hi = "echo HIII";
   #   };
   # };
-
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

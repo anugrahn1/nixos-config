@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   programs.kitty = {
@@ -8,8 +8,8 @@
     themeFile = "Catppuccin-Mocha";
     shellIntegration.enableZshIntegration = true;
     extraConfig = ''
-       confirm_os_window_close 0
-       background_opacity 0.9
+      confirm_os_window_close 0
+      background_opacity 0.9
     '';
   };
 }

@@ -1,11 +1,16 @@
-{ config,lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   gtk.enable = true;
   gtk.cursorTheme.package = pkgs.bibata-cursors;
   gtk.cursorTheme.name = "Bibata-Moden-Ice";
 
-  gtk.theme.package =  pkgs.catppuccin-gtk;
+  gtk.theme.package = pkgs.catppuccin-gtk;
   gtk.theme.name = "catppuccin-gtk";
 
   # gtk.theme.package =  pkgs.gruvbox-dark-gtk;
@@ -20,10 +25,9 @@
   # gtk.iconTheme.name = "GruvboxPlus";
   # gtk.iconTheme.package = pkgs.qogir-icon-theme;
   # gtk.iconTheme.name = "Qogir";
-  
+
   gtk.iconTheme.package = pkgs.whitesur-icon-theme;
   gtk.iconTheme.name = "whitesur";
-
 
   qt.enable = true;
   qt.style.name = "kvantum";
