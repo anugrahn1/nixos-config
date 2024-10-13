@@ -85,6 +85,11 @@
       source = ./modules/existing-dotfiles/fastfetch/config.jsonc;
       executable = false;
     };
+    ".config/kitty/startup-file" = {
+      source = ./modules/existing-dotfiles/kitty/startup-file;
+      executable = false;
+    };
+
   };
   # services.picom.enable = false;
 

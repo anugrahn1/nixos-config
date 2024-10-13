@@ -1,0 +1,6 @@
+launch --title terminal
+focus
+
+new_tab
+launch nvim
+title neovim
