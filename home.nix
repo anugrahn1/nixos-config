@@ -20,6 +20,9 @@
     ./modules/zoxide.nix
     ./modules/btop.nix
     ./modules/yazi.nix
+    ./modules/tmux.nix
+    # inputs.ags.homeManagerModules.default
+    # ./modules/ags.nix
   ];
 
   catppuccin.enable = true;
@@ -78,10 +81,10 @@
       source = ./modules/existing-dotfiles/picom/picom.conf;
       executable = false;
     };
-    # ".config/fastfetch/config.jsonc" = {
-    #   source = ./modules/existing-dotfiles/fastfetch/config.jsonc;
-    #   executable = false;
-    # };
+    ".config/fastfetch/config.jsonc" = {
+      source = ./modules/existing-dotfiles/fastfetch/config.jsonc;
+      executable = false;
+    };
   };
   # services.picom.enable = false;
 

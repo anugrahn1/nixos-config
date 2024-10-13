@@ -14,6 +14,8 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/picomnew.nix
+    # ./modules/caironew.nix
+    # ./modules/neovimnew.nix
   ];
 
   hardware.graphics = {
@@ -137,7 +139,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
-    neovim
+    neovim-unwrapped
     wget
     fzf
     ripgrep
@@ -179,7 +181,21 @@
     simplescreenrecorder
     wpsoffice
     nixfmt-rfc-style
+    prismlauncher
+    mcontrolcenter
+    docker
+    direnv
+    devenv
+    scrot
+    gtk3
+    pwndbg
   ];
+
+  nix.extraOptions = ''
+    trusted-users = root anugrah
+  '';
+  # programs.direnv.enable = true;
+  virtualisation.docker.enable = true;
 
   fonts.packages = with pkgs; [
     (nerdfonts.override {
@@ -197,7 +213,7 @@
     wacom.enable = true;
     enable = true;
     desktopManager = {
-      gnome.enable = true;
+      gnome.enable = false; # true causes some ln symbolic link error
       xterm.enable = false;
       xfce = {
         enable = true;
@@ -237,7 +253,7 @@
       at-spi2-atk
       at-spi2-core
       atk
-      cairo
+      # cairo
       cups
       curl
       dbus
@@ -247,7 +263,7 @@
       fuse3
       gdk-pixbuf
       glib
-      gtk3
+      # gtk3
       icu
       libGL
       libappindicator-gtk3
@@ -286,6 +302,7 @@
       zlib
     ];
   };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

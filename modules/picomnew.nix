@@ -8,8 +8,8 @@
 let
   picom = pkgs.picom.overrideAttrs (oldAttrs: rec {
     pname = "picom";
-    version = "12-rc4";
-    # version = "11.2";
+    version = "12.1";
+    # version = "12-rc4";
 
     src = pkgs.fetchFromGitHub {
       owner = "yshui";

@@ -22,11 +22,14 @@
         shutdown = "shutdown -h now";
       };
       oh-my-zsh = {
+        custom = "$HOME/.dotfiles/modules/existing-dotfiles/zsh-custom/";
         enable = true;
         theme = "robbyrussell";
         plugins = [
           "fzf"
           "zoxide"
+          "direnv"
+          "zsh-vi-mode"
         ];
       };
     };

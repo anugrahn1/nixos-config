@@ -20,6 +20,7 @@
     # };
     catppuccin.url = "github:catppuccin/nix";
     # picom.url = "github:yshui/picom";
+    fabric.url = "github:Fabric-Development/fabric/rewrite";
   };
 
   outputs =
