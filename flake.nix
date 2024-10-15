@@ -21,6 +21,10 @@
     catppuccin.url = "github:catppuccin/nix";
     # picom.url = "github:yshui/picom";
     fabric.url = "github:Fabric-Development/fabric/rewrite";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

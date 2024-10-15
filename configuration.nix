@@ -18,9 +18,22 @@
     # ./modules/neovimnew.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   hardware.graphics = {
     enable = true;
   };
+
+  # might be needed for hyprland nvidia, haven't tested yet
+  # boot.initrd.kernelModules = [
+  #   "nvidia"
+  #   "nvidia_modeset"
+  #   "nvidia_uvm"
+  #   "nvidia_drm"
+  # ];
+  # boot.extraModprobeConfig = ''
+  #   options nvidia_drm modeset=1 fbdev=1
+  # '';
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -73,6 +86,11 @@
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+    prime = {
+      sync.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   # Enable the X11 windowing system.
@@ -189,8 +207,15 @@
     scrot
     gtk3
     pwndbg
+    wdisplays
+    egl-wayland
+    lshw
+    spotify
+    sshfs
+    hyperfine
   ];
 
+  virtualisation.multipass.enable = true;
   nix.extraOptions = ''
     trusted-users = root anugrah
   '';
@@ -203,6 +228,9 @@
         "FiraCode"
         "JetBrainsMono"
         "SpaceMono"
+        "Iosevka"
+        "IosevkaTerm"
+        "IosevkaTermSlab"
       ];
     }) # find names here: https://github.com/NixOS/nixpkgs/blob/nixpkgs-unstable/pkgs/data/fonts/nerdfonts/shas.nix
   ];
@@ -231,7 +259,18 @@
 
   hardware.enableAllFirmware = true;
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+  hardware = {
+    opengl.enable = true;
+  };
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+
+  };
 
   programs.zsh.enable = true;
   users.users.anugrah.shell = pkgs.zsh;

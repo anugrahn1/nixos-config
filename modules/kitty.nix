@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  # get the font names kitty +list-fonts --psnames and pushing the settings to STDOUT and copying it here
+  # make sure to restart kitty after changing font
   programs.kitty = {
     enable = true;
-    font.name = "JetBrainsMonoNerdFont"; # find names with fc-list
-    font.size = 16;
     themeFile = "Catppuccin-Mocha";
     shellIntegration.enableZshIntegration = true;
     extraConfig = ''
@@ -18,6 +18,12 @@
       tab_bar_align center
       tab_bar_edge top
       startup_session startup-file
+      tab_bar_min_tabs 1
+      font_family      family="IosevkaTerm Nerd Font"
+      bold_font        auto
+      italic_font      auto
+      bold_italic_font auto
+      font_size 18
     '';
   };
 }

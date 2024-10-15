@@ -29,7 +29,7 @@
           "fzf"
           "zoxide"
           "direnv"
-          "zsh-vi-mode"
+          # "zsh-vi-mode"
         ];
       };
     };

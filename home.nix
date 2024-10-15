@@ -16,16 +16,21 @@
     ./modules/git.nix
     ./modules/gtk.nix
     ./modules/zathura.nix
-    # ./modules/hypr.nix
+    ./modules/hypr.nix
     ./modules/zoxide.nix
     ./modules/btop.nix
     ./modules/yazi.nix
     ./modules/tmux.nix
+    inputs.spicetify-nix.homeManagerModules.default
+    ./modules/spotify.nix
+    ./modules/eww.nix
+
     # inputs.ags.homeManagerModules.default
     # ./modules/ags.nix
   ];
 
   catppuccin.enable = true;
+  # home-manager.users.anugrah.nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -119,6 +124,11 @@
   #     hi = "echo HIII";
   #   };
   # };
+  # allow unfree packages
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (_: true);
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
