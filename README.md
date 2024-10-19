@@ -15,5 +15,7 @@ home-manager switch --flake . -b backup
 [Picom Config](https://gitlab.com/codevedas/dotfiles-ayushman/-/blob/i3-nord/.config/picom/picom.conf?ref_type=heads)
 [Fastfetch Config](https://github.com/MeraMadness/MeraHypr/blob/main/.config/fastfetch/config.jsonc)
 
+### Fixes
 
+[If systemd service isn't deleted with home-manager](https://github.com/nix-community/home-manager/issues/355#issuecomment-524042996)
 

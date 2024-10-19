@@ -88,6 +88,7 @@ in
     };
 
     extraConfig = ''
+      exec_always --no-startup-id picom -b
       exec_always --no-startup-id blueman-applet 
       exec_always --no-startup-id ~/.dotfiles/scripts/volume.sh
       exec_always --no-startup-id feh --bg-scale ${wallpaperPath}

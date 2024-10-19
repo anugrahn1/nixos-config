@@ -30,6 +30,8 @@
   ];
 
   catppuccin.enable = true;
+
+  systemd.user.startServices = true;
   # home-manager.users.anugrah.nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your configuration is
