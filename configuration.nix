@@ -36,8 +36,8 @@
   # '';
 
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
+ # boot.loader.systemd-boot.enable = true;
+ # boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
@@ -155,7 +155,7 @@
   services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
     neovim-unwrapped
     wget

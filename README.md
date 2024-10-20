@@ -19,3 +19,13 @@ home-manager switch --flake . -b backup
 
 [If systemd service isn't deleted with home-manager](https://github.com/nix-community/home-manager/issues/355#issuecomment-524042996)
 
+## Not booting properly (cant mount /mnt-root) 
+
+- Boot into live nixos environment from a usb
+- mount the ext4 partition to /mnt
+- mount the boot partition to /boot
+- cd into /mnt and run sudo nixos-enter
+- cd into /home/anugrah/.dotfiles
+- run sudo nixos-install --flake .#nixos
+- exit and reboot
+
