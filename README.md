@@ -22,10 +22,9 @@ home-manager switch --flake . -b backup
 ## Not booting properly (cant mount /mnt-root) 
 
 - Boot into live nixos environment from a usb
-- mount the ext4 partition to /mnt
+- mount the ext4 partition to `/mnt`
 - mount the boot partition to /boot
-- cd into /mnt and run sudo nixos-enter
-- cd into /home/anugrah/.dotfiles
-- run sudo nixos-install --flake .#nixos
+- cd into `/mnt/home/anugrah/.dotfiles` and run `sudo nixos-install --flake .#nixos`
 - exit and reboot
+- the first time you login into i3+xfce, there will be a black screen, just reboot and login again
 

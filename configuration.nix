@@ -18,7 +18,7 @@
     # ./modules/neovimnew.nix
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.graphics = {
     enable = true;
@@ -181,7 +181,7 @@
     annotator
     godot_4
     pulseaudioFull
-    volumeicon
+    # volumeicon
     feh
     pfetch-rs
     inputs.zen-browser.packages."x86_64-linux".default
@@ -213,6 +213,7 @@
     spotify
     sshfs
     hyperfine
+    pasystray
   ];
 
   virtualisation.multipass.enable = true;

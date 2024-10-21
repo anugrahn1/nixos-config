@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-killall volumeicon
-volumeicon
+pkill pasystray
+pasystray
