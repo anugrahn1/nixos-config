@@ -50,7 +50,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
 
-    pkgs.kitty
+    # pkgs.kitty
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
