@@ -16,6 +16,7 @@
       enabledExtensions = with spicePkgs.extensions; [
         adblock
         shuffle # shuffle+ (special characters are sanitized out of extension names)
+        beautifulLyrics
       ];
       theme = spicePkgs.themes.catppuccin;
       colorScheme = "mocha";

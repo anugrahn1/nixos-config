@@ -214,6 +214,8 @@
     sshfs
     hyperfine
     pasystray
+    bemoji
+    xdotool
   ];
 
   virtualisation.multipass.enable = true;
