@@ -216,6 +216,7 @@
     pasystray
     bemoji
     xdotool
+    zoom-us
   ];
 
   virtualisation.multipass.enable = true;
