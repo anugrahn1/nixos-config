@@ -6,7 +6,8 @@
 }:
 
 let
-  wallpaperPath = "~/.dotfiles/wallpapers/Cyberpunk.png";
+  # wallpaperPath = "~/.dotfiles/wallpapers/Cyberpunk.png";
+  wallpaperPath = "~/.dotfiles/wallpapers/berserk.jpg";
 in
 {
   programs.i3status = {
@@ -32,7 +33,7 @@ in
   };
   xsession.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
+    # package = pkgs.i3-gaps;
     config = {
       terminal = "kitty";
       # gaps = {
@@ -49,16 +50,20 @@ in
           extraConfig = ''
             # output primary
             tray_output primary
+            position bottom 
             status_command i3status
             separator_symbol ":|:"
             workspace_min_width 10
             padding 5px 0 0 0
             colors {
-            	background #1e1e2e
-            	statusline #cdd6f4
+            	# background #1e1e2e
+            	# statusline #cdd6f4
+                background #111111
+                statusline #dedede
 
             }
-            	font pango:JetBrainsMono Nerd Font 10
+            	# font pango:JetBrainsMono Nerd Font 12
+            	font pango:IosevkaTerm Nerd Font 12
             	padding 0 6 0 0
           '';
         }
@@ -96,7 +101,7 @@ in
       exec_always --no-startup-id feh --bg-scale ${wallpaperPath}
 
 
-      for_window [class="^.*"] border pixel 2
+      for_window [class="^.*"] border pixel 0
       set $rosewater #f5e0dc
       set $flamingo  #f2cdcd
       set $pink      #f5c2e7
@@ -132,8 +137,10 @@ in
       client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
       client.background        $base
 
-      gaps inner 2
-      gaps outer 2
+
+
+      gaps inner 10
+      # gaps outer 8
       font pango:JetBrainsMono Nerd Font 14
 
     '';

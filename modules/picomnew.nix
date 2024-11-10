@@ -8,14 +8,14 @@
 let
   picom = pkgs.picom.overrideAttrs (oldAttrs: rec {
     pname = "picom";
-    version = "12.1";
+    version = "12.3";
     # version = "12-rc4";
 
     src = pkgs.fetchFromGitHub {
       owner = "yshui";
       repo = "picom";
       rev = "v${version}";
-      hash = "sha256-C85BmA86HA/UsUee26BWTMTxxNZ3frDU6ObCpJbQDCI=";
+      hash = "sha256-FwjMlHP8xNJikkPpz+8BORrqqKYvRpkqm9GbExCoLAU=";
       fetchSubmodules = true;
     };
 

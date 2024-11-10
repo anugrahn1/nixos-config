@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   kitty = pkgs.kitty.overrideAttrs (oldAttrs: rec {
@@ -21,16 +26,20 @@ let
   });
 in
 {
+
   # get the font names kitty +list-fonts --psnames and pushing the settings to STDOUT and copying it here
   # make sure to restart kitty after changing font
   programs.kitty = {
     package = kitty;
     enable = true;
-    themeFile = "Catppuccin-Mocha";
+    catppuccin.enable = false;
+    # themeFile = "Catppuccin-Mocha";
+    # themeFile = lib.mkForce "Jellybeans";
     shellIntegration.enableZshIntegration = true;
     extraConfig = ''
+      include ./Jellybeans.conf
       confirm_os_window_close 0
-      background_opacity 0.9
+      # background_opacity 0.9
       map ctrl+shift+h previous_tab
       map ctrl+shift+l next_tab
       map ctrl+shift+o select_tab
@@ -38,14 +47,24 @@ in
       tab_powerline_style slanted
       tab_bar_align center
       tab_bar_edge top
-      startup_session startup-file
-      tab_bar_min_tabs 1
-      font_family      family="IosevkaTerm Nerd Font"
+      # startup_session startup-file
+      # tab_bar_min_tabs 1
+
+      font_family      family="JetBrainsMono Nerd Font Mono"
       bold_font        auto
       italic_font      auto
       bold_italic_font auto
+
+      font_features JetBrainsMonoNFM-Regular +calt +clig +liga +ss20 +cv02 +cv03 +cv04 +cv05 +cv06 +cv07 +cv11 +cv14 +cv15 +cv16 +cv17
+
       font_size 18
       cursor_trail 1
     '';
+
+    #     font_family      family="IosevkaTerm Nerd Font"
+    # bold_font        auto
+    # italic_font      auto
+    # bold_italic_font auto 
+
   };
 }

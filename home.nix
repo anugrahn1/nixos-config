@@ -19,7 +19,7 @@
     ./modules/hypr.nix
     ./modules/zoxide.nix
     ./modules/btop.nix
-    ./modules/yazi.nix
+    # ./modules/yazi.nix
     ./modules/tmux.nix
     inputs.spicetify-nix.homeManagerModules.default
     ./modules/spotify.nix
@@ -94,6 +94,10 @@
     };
     ".config/kitty/startup-file" = {
       source = ./modules/existing-dotfiles/kitty/startup-file;
+      executable = false;
+    };
+    ".config/kitty/Jellybeans.conf" = {
+      source = ./modules/existing-dotfiles/kitty/Jellybeans.conf;
       executable = false;
     };
 

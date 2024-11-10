@@ -8,7 +8,10 @@
 {
 
   wayland.windowManager.hyprland.enable = true; # enable Hyprland
-  home.sessionVariables.NIXOS_OZONE_WL = "1";
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+  };
 
   wayland.windowManager.hyprland.settings = {
     "$mod" = "ALT";
@@ -66,14 +69,65 @@
       "DP-6, 1920x1080@165, 0x0, 1"
       "DP-5, 1920x1080@165, 1920x0, 1"
       # "eDP-1, disable"
+      "eDP-1, preferred, 0x1080, 1"
     ];
+
+    decoration = {
+      rounding = 10;
+      blur = {
+        enabled = true;
+        size = 6;
+        passes = 3;
+        new_optimizations = true;
+      };
+      inactive_opacity = 1.0;
+      active_opacity = 1.0;
+      fullscreen_opacity = 1.0;
+
+      # drop_shadow = true;
+      # shadow_range = 60;
+      # shadow_offset = "0 5";
+      # shadow_render_power = 4;
+      # "col.shadow" = "rgba(00000099)";
+    };
+
+    animations = {
+      enabled = true;
+      bezier = [
+        "fastBezier, 0.05, 1.1, 0.2, 1.0"
+        "linear, 0.0, 0.0, 1.0, 1.0"
+        "liner, 1, 1, 1, 1"
+      ];
+      animation = [
+        "windows, 1, 7, fastBezier, slide"
+        "windowsOut, 1, 7, fastBezier, slide"
+        "border, 1, 10, fastBezier"
+        "fade, 1, 7, fastBezier"
+        "workspaces, 1, 6, fastBezier"
+        "border, 1, 1, liner"
+        "borderangle, 1, 40, liner, loop"
+        "borderangle, 1, 100, linear, loop"
+      ];
+    };
+    render = {
+      explicit_sync = 1;
+      explicit_sync_kms = 1;
+      direct_scanout = false;
+    };
+    misc = {
+      disable_hyprland_logo = true;
+      mouse_move_enables_dpms = true;
+      key_press_enables_dpms = false;
+    };
     env = [
       "LIBVA_DRIVER_NAME,nvidia"
       "XDG_SESSION_TYPE,wayland"
       "GBM_BACKEND,nvidia-drm"
       "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-      "XCURSOR_SIZE,24"
-      "HYPRCURSOR_SIZE,24"
+      "NVD_BACKEND,direct"
+      "ELECTRON_OZONE_PLATFORM_HINT,auto"
+      # "XCURSOR_SIZE,24"
+      # "HYPRCURSOR_SIZE,24"
     ];
     cursor = {
       no_hardware_cursors = true;

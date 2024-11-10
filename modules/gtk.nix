@@ -32,5 +32,6 @@
   qt.enable = true;
   qt.style.name = "kvantum";
   qt.platformTheme.name = "kvantum";
+  qt.style.package = pkgs. catppuccin-qt5ct;
 
 }

@@ -9,16 +9,27 @@
   ...
 }:
 
+let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
+  nix.settings = {
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+  };
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/picomnew.nix
+    ./modules/stylix.nix
     # ./modules/caironew.nix
     # ./modules/neovimnew.nix
   ];
 
+  nix.optimise.automatic = true;
+
   # boot.kernelPackages = pkgs.linuxPackages_latest;
+
 
   hardware.graphics = {
     enable = true;
@@ -36,8 +47,8 @@
   # '';
 
   # Bootloader.
- # boot.loader.systemd-boot.enable = true;
- # boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
@@ -154,6 +165,13 @@
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
 
+  hardware.opengl = {
+    package = pkgs-unstable.mesa.drivers;
+
+    driSupport32Bit = true;
+    package32 = pkgs-unstable.pkgsi686Linux.mesa.drivers;
+  };
+
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
@@ -217,7 +235,15 @@
     bemoji
     xdotool
     zoom-us
+    glxinfo
+    libsForQt5.qt5ct
+    qt6ct
+    nim
+    nixd
+    chromium
   ];
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   virtualisation.multipass.enable = true;
   nix.extraOptions = ''
@@ -234,7 +260,7 @@
         "SpaceMono"
         "Iosevka"
         "IosevkaTerm"
-        "IosevkaTermSlab"
+        "VictorMono"
       ];
     }) # find names here: https://github.com/NixOS/nixpkgs/blob/nixpkgs-unstable/pkgs/data/fonts/nerdfonts/shas.nix
   ];
@@ -263,18 +289,23 @@
 
   hardware.enableAllFirmware = true;
 
+  # programs.hyprland = {
+  #   enable = true;
+  #   xwayland.enable = true;
+  # };
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    # set the flake package
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    # make sure to also set the portal package, so that they are in sync
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
-  hardware = {
-    opengl.enable = true;
-  };
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    WLR_NO_HARDWARE_CURSORS = "1";
-
-  };
+  # environment.sessionVariables = {
+  #   NIXOS_OZONE_WL = "1";
+  #   WLR_NO_HARDWARE_CURSORS = "1";
+  #
+  # };
 
   programs.zsh.enable = true;
   users.users.anugrah.shell = pkgs.zsh;
