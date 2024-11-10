@@ -61,6 +61,11 @@ in
                 background #111111
                 statusline #dedede
 
+
+                focused_workspace  #111111 #112222 #ffffff
+                active_workspace   #111111 #111111 #999999
+                inactive_workspace #111111 #111111 #444444
+
             }
             	# font pango:JetBrainsMono Nerd Font 12
             	font pango:IosevkaTerm Nerd Font 12
