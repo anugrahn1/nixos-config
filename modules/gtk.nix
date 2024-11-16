@@ -14,7 +14,7 @@
   # gtk.theme.name = "catppuccin-gtk";
 
   # Find more gtk themes here:
-  # https://github.com/NixOS/nixpkgs/tree/7eee17a8a5868ecf596bbb8c8beb527253ea8f4d/pkgs/data/themes
+  # https://github.com/NixOS/nixpkgs/tree/master/pkgs/data/themes
   gtk.theme.package = pkgs.andromeda-gtk-theme;
   gtk.theme.name = "andromeda-gtk";
 
