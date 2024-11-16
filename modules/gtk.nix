@@ -10,8 +10,16 @@
   gtk.cursorTheme.package = pkgs.bibata-cursors;
   gtk.cursorTheme.name = "Bibata-Moden-Ice";
 
-  gtk.theme.package = pkgs.catppuccin-gtk;
-  gtk.theme.name = "catppuccin-gtk";
+  # gtk.theme.package = pkgs.catppuccin-gtk;
+  # gtk.theme.name = "catppuccin-gtk";
+
+  # Find more gtk themes here:
+  # https://github.com/NixOS/nixpkgs/tree/7eee17a8a5868ecf596bbb8c8beb527253ea8f4d/pkgs/data/themes
+  gtk.theme.package = pkgs.andromeda-gtk-theme;
+  gtk.theme.name = "andromeda-gtk";
+
+  # gtk.theme.package = pkgs.vimix-gtk-themes;
+  # gtk.theme.name = "vimix";
 
   # gtk.theme.package =  pkgs.gruvbox-dark-gtk;
   # gtk.theme.name = "gruvbox-dark-gtk";
@@ -32,6 +40,6 @@
   qt.enable = true;
   qt.style.name = "kvantum";
   qt.platformTheme.name = "kvantum";
-  qt.style.package = pkgs. catppuccin-qt5ct;
+  qt.style.package = pkgs.catppuccin-qt5ct;
 
 }

@@ -14,13 +14,13 @@ let
       owner = "kovidgoyal";
       repo = "kitty";
       rev = "refs/tags/${version}";
-      hash = "sha256-P3NsGXIlKV+7wiUayOC4SdKpjvHIpwePiRaMa6q2ZPo=";
+      hash = "sha256-NvAwsGNmqVIMDmlMAnabh20e6pAXOaOxWuFfTpcSu/s=";
     };
     goModules =
       (pkgs.buildGoModule {
         pname = "kitty-go-modules";
         inherit src version;
-        vendorHash = "sha256-d5jRhOm53HDGnsU5Lg5tVGU/9z8RGqORzS53hOyIKBk=";
+        vendorHash = "sha256-XWJuCfSYIP7zH1B0sUIvko7wp06s7pTc1gOuPJuwE6Q=";
       }).goModules;
 
   });
@@ -37,28 +37,30 @@ in
     # themeFile = lib.mkForce "Jellybeans";
     shellIntegration.enableZshIntegration = true;
     extraConfig = ''
-      include ./Jellybeans.conf
-      confirm_os_window_close 0
-      # background_opacity 0.9
-      map ctrl+shift+h previous_tab
-      map ctrl+shift+l next_tab
-      map ctrl+shift+o select_tab
-      tab_bar_style powerline
-      tab_powerline_style slanted
-      tab_bar_align center
-      tab_bar_edge top
-      # startup_session startup-file
-      # tab_bar_min_tabs 1
+                        include ./Jellybeans.conf
+                        confirm_os_window_close 0
+                        # background_opacity 0.9
+                        map ctrl+shift+h previous_tab
+                        map ctrl+shift+l next_tab
+                        map ctrl+shift+o select_tab
+                        tab_bar_style powerline
+                        tab_powerline_style slanted
+                        tab_bar_align center
+                        tab_bar_edge top
+                        # startup_session startup-file
+                        # tab_bar_min_tabs 1
 
-      font_family      family="JetBrainsMono Nerd Font Mono"
-      bold_font        auto
-      italic_font      auto
-      bold_italic_font auto
+                        font_family      family="JetBrainsMono Nerd Font Mono"
+                        bold_font        auto
+                        italic_font      auto
+                        bold_italic_font auto
 
-      font_features JetBrainsMonoNFM-Regular +calt +clig +liga +ss20 +cv02 +cv03 +cv04 +cv05 +cv06 +cv07 +cv11 +cv14 +cv15 +cv16 +cv17
+                        font_features JetBrainsMonoNFM-Regular +calt +clig +liga +ss20 +cv02 +cv03 +cv04 +cv05 +cv06 +cv07 +cv11 +cv14 +cv15 +cv16 +cv17
 
-      font_size 18
-      cursor_trail 1
+                        font_size 18
+                        cursor_trail 1
+      scrollback_pager nvim +"source ~/.config/kitty/vi-mode.lua"
+      map ctrl+h show_scrollback
     '';
 
     #     font_family      family="IosevkaTerm Nerd Font"

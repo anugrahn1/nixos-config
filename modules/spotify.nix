@@ -18,7 +18,8 @@
         shuffle # shuffle+ (special characters are sanitized out of extension names)
         beautifulLyrics
       ];
-      theme = spicePkgs.themes.catppuccin;
+      # theme = spicePkgs.themes.catppuccin;
+      theme = spicePkgs.themes.sleek;
       colorScheme = "mocha";
     };
 }

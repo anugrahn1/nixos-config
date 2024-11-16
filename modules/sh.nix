@@ -20,6 +20,7 @@
         zathura = "zathura --fork";
         nv = "nvim";
         shutdown = "shutdown -h now";
+        nixdev = "nix develop -f shell.nix -c $SHELL";
       };
       oh-my-zsh = {
         custom = "$HOME/.dotfiles/modules/existing-dotfiles/zsh-custom/";

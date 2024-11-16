@@ -100,6 +100,10 @@
       source = ./modules/existing-dotfiles/kitty/Jellybeans.conf;
       executable = false;
     };
+    ".config/kitty/vi-mode.lua" = {
+      source = ./modules/existing-dotfiles/kitty/vi-mode.lua;
+      executable = false;
+    };
 
   };
   # services.picom.enable = false;

@@ -13,6 +13,12 @@ let
   pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in
 {
+  # https://demonastery.org/2022/05/custom-packages-with-nixos/
+  nixpkgs.overlays = [
+    (self: super: {
+      presenterm-export = super.callPackage ./modules/presenterm-export { }; # path containing default.nix
+    })
+  ];
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
     trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
@@ -21,7 +27,7 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./modules/picomnew.nix
-    ./modules/stylix.nix
+    # ./modules/stylix.nix # should this be in home manager?
     # ./modules/caironew.nix
     # ./modules/neovimnew.nix
   ];
@@ -29,7 +35,6 @@ in
   nix.optimise.automatic = true;
 
   # boot.kernelPackages = pkgs.linuxPackages_latest;
-
 
   hardware.graphics = {
     enable = true;
@@ -174,7 +179,6 @@ in
 
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
     neovim-unwrapped
     wget
     fzf
@@ -241,6 +245,17 @@ in
     nim
     nixd
     chromium
+    presenterm
+    mermaid-cli
+    pandoc
+    typst
+    presenterm-export
+    (python3.withPackages (
+      ps: with ps; [
+        numpy
+        scikitlearn
+      ]
+    ))
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

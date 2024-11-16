@@ -94,7 +94,7 @@ in
           "${modifier}+n" = "exec --no-startup-id zen";
           "${modifier}+b" = "exec --no-startup-id blueman-manager";
 
-          "${modifier}+e" = "exec bemoji -tn";
+          "${modifier}+m" = "exec bemoji -tn";
 
         };
     };

@@ -27,4 +27,5 @@
     base0F = "82cfff";
   };
   stylix.image = ../wallpapers/berserk.jpg;
+  stylix.cursor.size = 22;
 }
