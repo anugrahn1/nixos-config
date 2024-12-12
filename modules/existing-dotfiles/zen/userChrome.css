@@ -1,3 +1,191 @@
+* { font-family: "Poppins" !important; }
+
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon, .tab-background:is([selected], [multiselected]) {
+	box-shadow: none !important;
+}
+
+/* Integrated URL bar & webview */
+@media not (-moz-bool-pref:"zen.view.compact"){
+  #browser {
+    &:has(#navigator-toolbox[zen-expanded="true"]) {
+      &:not(:has(.zen-split-view-splitter)) {
+        --urlbar-min-width: 28px !important;
+
+        #nav-bar {
+          --zen-toolbar-height: 36px;
+
+          background-color: var(--lwt-accent-color) !important;
+          border-radius: 15px 15px 0px 0px !important;
+          padding-left: 6px !important;
+        }
+
+        .browserContainer {
+          border-radius: 0px 0px 15px 15px !important;
+          
+        &:not([urlbar-exceeds-toolbar-bounds]) {
+            backdrop-filter: blur(10px) saturate(1.5);
+          }  
+        }
+        
+        .browserSidebarContainer {
+          background-color: var(--lwt-accent-color) !important;
+        } 
+      }
+    }
+  }
+}
+
+#browser {
+	&::before {
+		background-image: url("noise.svg") !important;
+		mix-blend-mode: overlay;
+	}
+	background: var(--zen-main-browser-background-toolbar) !important;
+}
+
+#nav-bar {
+	margin: 0px !important;
+}
+
+#tabbrowser-tabpanels {
+	padding: 0px !important;
+}
+
+#zen-appcontent-wrapper {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+:root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+	& #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+		border-radius: 0px 0px 15px 15px !important;
+		box-shadow: none !important;
+	}
+}
+
+#urlbar
+{
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+#urlbar[focused] {
+	box-shadow: 0 0 0 1pt var(--toolbar-field-focus-border-color) !important;
+}
+
+#urlbar:not([focused]) {
+	box-shadow: none !important;
+}
+
+#urlbar[focused]:not([suppress-focus-border]) > #urlbar-background,
+#searchbar:focus-within {
+	outline: none !important;
+}	
+
+#zen-current-workspace-indicator {
+	display: none;
+}
+
+#TabsToolbar {
+	-moz-window-dragging: no-drag !important;
+}
+
+#preferences-button, #zen-expand-sidebar-button, #zen-sidepanel-button, #downloads-button, .tab-close-button {
+	color: rgb(255, 255, 255) !important;
+	fill: rgb(255, 255, 255) !important;
+}
+
+.tab-text {
+	color: rgb(255, 255, 255) !important;
+}
+
+.tab-background[selected] {
+	background: none !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected], [multiselected]) {
+  background-color: var(--tab-hover-background-color) !important;
+}
+
+.tab-background {
+	outline: none !important;
+}
+
+#tabbrowser-arrowscrollbox-periphery,#tabs-newtab-button {
+	color: #888 !important;
+}
+
+#tabs-newtab-button > .toolbarbutton-icon {
+	list-style-image: url('plus2.svg') !important;
+	width: 12px !important;
+	height: 12px !important;
+}
+
+#tabs-newtab-button > .toolbarbutton-text {
+	padding-top: 0px !important;
+	display: flex !important;
+	flex-direction: column !important;
+	justify-content: center !important;
+	padding-left: 13px !important;
+}
+
+#urlbar:not([focused="true"]):not([breakout-extend="true"]) > #urlbar-background {
+	background: none !important;
+}
+
+#urlbar[breakout-extend="true"] {
+	color: rgb(255, 255, 255) !important;
+	.deck-selected {
+		filter: blur(100px);
+	}
+	backdrop-filter: blur(100px);
+}
+
+#urlbar[breakout-extend="true"] > #urlbar-background {
+	background: none !important;
+}
+
+#nav-bar {
+  :root[sessionrestored][lwtheme] & {
+    transition: none !important;
+  }
+}
+
+#clear-button {
+	border: none;
+	background: none;
+	transition-duration: 0.1s;
+	opacity: 0;
+	position: absolute;
+	right: 0px;
+	color: rgba(255,255,255, 0.3);
+}
+
+#vertical-pinned-tabs-container-separator {
+	margin-left: 0px !important;
+	display: grid !important;
+	place-items: center !important;
+	transition-duration: 0.1s;
+}
+
+#tabbrowser-tabs:hover > #vertical-pinned-tabs-container-separator {
+  width: 74% !important;
+}
+
+#tabbrowser-tabs:hover > #vertical-pinned-tabs-container-separator > #clear-button {
+  border: none;
+  opacity: 1 !important;
+}
+
+#clear-button:hover {
+  color: rgb(255,255,255) !important;
+}
+
+/* ----------- */
+
 #nav-bar, #urlbar-background, #zen-sidebar-web-panel {
     background-color:  var(--lwt-accent-color) !important;
 }
@@ -41,3 +229,6 @@ panel {
 #titlebar {
   background: var(--lwt-accent-color) !important;
 }
+
+/* hides "search with google new tab placeholder" */
+#urlbar-input::placeholder{ color: transparent }

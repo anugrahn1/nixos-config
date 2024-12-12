@@ -292,6 +292,8 @@ in
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term
     nerd-fonts.victor-mono
+    poppins
+
   ];
 
   # fonts.packages = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-emoji];
