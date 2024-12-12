@@ -20,13 +20,16 @@
     };
     catppuccin.url = "github:catppuccin/nix";
     # picom.url = "github:yshui/picom";
-    fabric.url = "github:Fabric-Development/fabric/rewrite";
+    fabric.url = "github:Fabric-Development/fabric";
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs"; # MESA/OpenGL HW workaround
+    };
   };
 
   outputs =

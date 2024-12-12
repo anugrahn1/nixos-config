@@ -250,10 +250,15 @@ in
     pandoc
     typst
     presenterm-export
+    davinci-resolve
+    ffmpeg
+    steam-run
+    pwntools
     (python3.withPackages (
       ps: with ps; [
         numpy
         scikitlearn
+        pwntools
       ]
     ))
   ];
@@ -267,17 +272,26 @@ in
   # programs.direnv.enable = true;
   virtualisation.docker.enable = true;
 
+  # fonts.packages = with pkgs; [
+  #   (nerdfonts.override {
+  #     fonts = [
+  #       "FiraCode"
+  #       "JetBrainsMono"
+  #       "SpaceMono"
+  #       "Iosevka"
+  #       "IosevkaTerm"
+  #       "VictorMono"
+  #     ];
+  #   }) # find names here: https://github.com/NixOS/nixpkgs/blob/nixpkgs-unstable/pkgs/data/fonts/nerdfonts/shas.nix
+  # ];
+
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-        "SpaceMono"
-        "Iosevka"
-        "IosevkaTerm"
-        "VictorMono"
-      ];
-    }) # find names here: https://github.com/NixOS/nixpkgs/blob/nixpkgs-unstable/pkgs/data/fonts/nerdfonts/shas.nix
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.space-mono
+    nerd-fonts.iosevka
+    nerd-fonts.iosevka-term
+    nerd-fonts.victor-mono
   ];
 
   # fonts.packages = with pkgs; [noto-fonts noto-fonts-extra noto-fonts-emoji];
@@ -297,7 +311,7 @@ in
     displayManager = {
       gdm.enable = true;
     };
-    windowManager.i3.enable = true;
+    windowManager.i3.enable = true; # maybe try out awesomewm?
   };
 
   services.displayManager.defaultSession = "xfce+i3";

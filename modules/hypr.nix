@@ -134,7 +134,12 @@
     };
     windowrulev2 = [
       "suppressevent maximize, class:.*" # You'll probably like this.
+      "rounding 0, class:^[fF]irefox"
     ];
+    debug = {
+      overlay = false;
+    };
+
   };
 
 }

@@ -94,7 +94,7 @@ in
           "${modifier}+n" = "exec --no-startup-id zen";
           "${modifier}+b" = "exec --no-startup-id blueman-manager";
 
-          "${modifier}+m" = "exec bemoji -tn";
+          "${modifier}+m" = "exec bemoji -t";
 
         };
     };
@@ -147,6 +147,8 @@ in
       gaps inner 10
       # gaps outer 8
       font pango:JetBrainsMono Nerd Font 14
+
+      for_window [class="Bar"] floating enable
 
     '';
 

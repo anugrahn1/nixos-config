@@ -14,7 +14,7 @@ let
       owner = "kovidgoyal";
       repo = "kitty";
       rev = "refs/tags/${version}";
-      hash = "sha256-NvAwsGNmqVIMDmlMAnabh20e6pAXOaOxWuFfTpcSu/s=";
+      hash = "sha256-e50IOkQ5dqSzJgGffb+JzJ7ZpMttUpoOO9cjxfqDavw=";
     };
     goModules =
       (pkgs.buildGoModule {
@@ -61,6 +61,9 @@ in
                         cursor_trail 1
       scrollback_pager nvim +"source ~/.config/kitty/vi-mode.lua"
       map ctrl+h show_scrollback
+
+      # https://www.reddit.com/r/linux/comments/re5aiy/comment/ho8n17p/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+      repaint_delay 6
     '';
 
     #     font_family      family="IosevkaTerm Nerd Font"
